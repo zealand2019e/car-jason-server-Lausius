@@ -1,4 +1,5 @@
 ﻿using ModelLib;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net;
@@ -30,7 +31,8 @@ namespace CarJasonClient
                 StreamReader sr = new StreamReader(ns);
                 StreamWriter sw = new StreamWriter(ns);
                 sw.AutoFlush = true;
-                sw.WriteLine(car);
+                string carJasonString = JsonConvert.SerializeObject(car);
+                sw.WriteLine(carJasonString);
                 Console.WriteLine(sr.ReadLine());
             }
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ModelLib;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -22,7 +24,9 @@ namespace CarJsonServer
                 StreamWriter sw = new StreamWriter(ns);
                 sw.AutoFlush = true;
                 var message = sr.ReadLine();
-                Console.WriteLine(message);
+                Console.WriteLine("Json Serialized Car Object: " + message);
+                Car deserializedCar = JsonConvert.DeserializeObject<Car>(message);
+                Console.WriteLine("Deserialized Car Object: "+ deserializedCar);
             }
         }
     }
