@@ -4,8 +4,16 @@ using System.Text;
 
 namespace ModelLib
 {
-    class AutoSale
+    public class AutoSale
     {
-        List<Car> carList = new List<Car>();
+
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public List<Car> CarList { get; set; }
+
+        public override string ToString()
+        {
+            return ($"Name: {Name} - Address: {Address} - Cars: {CarList.Count}");
+        }
     }
 }
